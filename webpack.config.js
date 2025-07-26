@@ -60,4 +60,4 @@ module.exports = (env, argv) => {
     devtool: isProduction ? false : 'source-map',
     watch: false
   };
-};
+}; 
