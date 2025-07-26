@@ -184,7 +184,7 @@
     position: relative;
     padding: 80px 0;
     max-width: 1300px;
-    margin: 0 auto;
+    margin: 0 auto 60px auto;
     padding: 80px 15px 0 15px;
 
     &::before {
@@ -198,7 +198,6 @@
         filter: blur(300px);
         z-index: 0;
         opacity: 1;
-
 
         @media (max-width: 1349px) {
             width: 400px;
@@ -359,7 +358,7 @@
         border: 1px solid $card-border-color;
         transition: all 0.3s ease;
         scroll-margin-top: 120px;
-        opacity: 0.6;
+        opacity: 0.4;
     }
 
     .features-list .feature-item.active {
@@ -371,14 +370,14 @@
     }
 
     .feature-title {
-        font-size: 1.5rem;
-        font-weight: 600;
+        font-size: 20px;
+        font-weight: 700;
         color: $primary-text-color;
         margin-bottom: 8px;
     }
 
     .feature-description {
-        font-size: 1rem;
+        font-size: 16px;
         color: $secondary-text-color;
         line-height: 1.6;
         margin-bottom: 16px;

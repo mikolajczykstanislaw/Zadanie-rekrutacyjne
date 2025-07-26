@@ -25,17 +25,12 @@ const featuresPage = () => {
             );
             if (activeMenuItem) {
                 activeMenuItem.classList.add("active");
-                console.log(`Menu item activated: ${targetId}`);
             }
 
             // Aktywuj odpowiedni feature item
             const activeFeatureItem = document.getElementById(targetId);
             if (activeFeatureItem) {
                 activeFeatureItem.classList.add("active");
-                console.log(
-                    `Feature item activated: ${targetId}`,
-                    activeFeatureItem.classList.contains("active")
-                );
             }
         };
 
