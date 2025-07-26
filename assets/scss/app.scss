@@ -24,20 +24,6 @@
 
 .navigation-section {
     background: white;
-    position: relative; // konieczne do pozycji pseudo-elementu
-
-    &::after {
-        content: "";
-        position: absolute;
-        bottom: 300;
-        left: 0;
-        width: 100%;
-        height: 50px; // wysokość dolnego paska
-        background: white;
-        filter: blur(15px); // lekko rozmyty
-        pointer-events: none;
-        z-index: 30;
-    }
 
     .navbar {
         padding: 12px 0;
@@ -136,7 +122,7 @@
     position: absolute;
     background-color: white;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border: 1px solid $card-border-color;
     z-index: 1;
     border-radius: 0.25rem;
     padding: 0.5rem 0;
@@ -197,16 +183,48 @@
 .features-section {
     position: relative;
     padding: 80px 0;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 80px 15px 0 15px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 867px;
+        height: 666px;
+        top: 1000px;
+        left: -91.5px;
+        background: rgba(133, 198, 255, 0.4);
+        filter: blur(300px);
+        z-index: 0;
+        opacity: 1;
+
+
+        @media (max-width: 1349px) {
+            width: 400px;
+            height: 300px;
+            top: 200px;
+            left: -50px;
+        }
+
+        @media (max-width: 768px) {
+            width: 300px;
+            height: 200px;
+            top: 150px;
+            left: -30px;
+        }
+    }
 
     .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
+        max-width: none;
+        margin: 0;
+        padding: 0;
         position: relative;
         z-index: 1;
         display: flex;
         gap: 40px;
         align-items: flex-start;
+        width: 100%;
 
         @media (max-width: 1024px) {
             flex-direction: column;
@@ -221,10 +239,10 @@
         position: sticky;
         top: 100px;
         background: white;
-        border-radius: 16px;
-        padding: 20px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        width: 290px; // Zmieniona szerokość
+        border: 1px solid $card-border-color;
+        border-radius: 12px;
+        padding: 8px;
+        width: 290px;
         min-width: 290px;
         max-height: calc(100vh - 120px);
         overflow-y: auto;
@@ -259,13 +277,14 @@
         .menu-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            border-radius: 12px;
+            gap: 10px;
+            padding: 8px 16px 8px 12px;
+            border-radius: 6px;
             text-decoration: none;
             color: $primary-text-color;
-            font-weight: 500;
-            font-size: 14px;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
             transition: all 0.3s ease;
             position: relative;
 
@@ -276,25 +295,39 @@
             }
 
             .icon {
-                font-size: 16px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 width: 20px;
                 height: 20px;
+
+                svg {
+                    width: 18px;
+                    height: 18px;
+                    transition: all 0.3s ease;
+
+                    path {
+                        fill: #030712;
+                        transition: fill 0.3s ease;
+                    }
+                }
             }
 
             &:hover {
-                background-color: rgba($primary-color, 0.08);
+                background-color: $light-blue-bg;
                 color: $primary-color;
+
+                .icon svg path {
+                    fill: $primary-color;
+                }
             }
 
             &.active {
-                background-color: $primary-color;
-                color: white;
+                background-color: $light-blue-bg;
+                color: $primary-color;
 
-                .icon {
-                    filter: brightness(0) invert(1);
+                .icon svg path {
+                    fill: $primary-color;
                 }
             }
         }
@@ -319,26 +352,18 @@
     .feature-item {
         display: flex;
         align-items: flex-start;
-        gap: 20px;
-        padding: 24px;
+        gap: 32px;
+        padding: 24px 20px 24px 20px;
         background: white;
         border-radius: 16px;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-        transition: all 0.3s ease; // Zmienione na all żeby obejmowało opacity
-        scroll-margin-top: 120px; // Offset dla sticky menu
-        opacity: 0.6; // Domyślna opacity dla nieaktywnych
-
-        &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-        }
+        border: 1px solid $card-border-color;
+        transition: all 0.3s ease;
+        scroll-margin-top: 120px;
+        opacity: 0.6;
     }
 
-    // Oddzielna reguła dla aktywnych elementów z wyższą specyficznością
     .features-list .feature-item.active {
         opacity: 1 !important;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
     }
 
     .feature-content {
@@ -362,20 +387,14 @@
     .feature-link {
         color: $primary-color;
         text-decoration: none;
-        font-weight: 500;
-        font-size: 0.9rem;
+        font-weight: 700;
+        font-size: 16px;
         display: inline-flex;
         align-items: center;
-        gap: 4px;
         transition: color 0.3s ease;
 
         &:hover {
-            color: darken($primary-color, 15%);
             text-decoration: underline;
-
-            &::after {
-                transform: translateX(2px);
-            }
         }
 
         .arrow-icon {
@@ -385,19 +404,14 @@
     }
 
     @media (max-width: 768px) {
-        padding: 40px 0;
-
-        .container {
-            padding: 0 15px;
-            gap: 20px;
-        }
+        padding: 40px 15px 0 15px;
 
         .sticky-features-menu {
             position: static;
             width: 100%;
-            padding: 12px;
+            padding: 8px;
             border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid $card-border-color;
 
             ul {
                 display: flex;
@@ -408,10 +422,10 @@
             }
 
             .menu-item {
-                padding: 8px 12px;
+                padding: 8px 16px 8px 12px;
                 font-size: 12px;
                 gap: 6px;
-                border-radius: 8px;
+                border-radius: 6px;
                 white-space: nowrap;
                 flex-shrink: 0;
 
@@ -465,19 +479,14 @@
         }
     }
 
-    // Dodatkowe style dla bardzo małych ekranów
     @media (max-width: 480px) {
-        padding: 30px 0;
-
-        .container {
-            padding: 0 10px;
-        }
+        padding: 30px 15px 0 15px;
 
         .sticky-features-menu {
-            padding: 10px;
+            padding: 8px;
 
             .menu-item {
-                padding: 6px 10px;
+                padding: 8px 16px 8px 12px;
                 font-size: 11px;
                 gap: 4px;
 
@@ -514,7 +523,7 @@
         left: 0;
         width: 100%;
         background-color: white;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        border: 1px solid $card-border-color;
         padding: 1rem;
         display: none;
         flex-direction: column;
@@ -555,7 +564,6 @@
     .dropdown-menu {
         position: static;
         width: 100%;
-        box-shadow: none;
         border: none;
         padding: 0;
         background-color: transparent;
