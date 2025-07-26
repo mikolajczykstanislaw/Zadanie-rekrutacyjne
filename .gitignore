@@ -2,7 +2,6 @@
 node_modules/
 
 # Webpack build output
-dist/
 build/
 
 # Logs
