@@ -10,7 +10,6 @@ const pricingPage = () => {
             moduleCheckboxes = moduleData.modules;
             vatMultiplier = moduleData.vat.multiplier;
         } catch (error) {
-            console.error("Błąd ładowania danych modułów:", error);
             return;
         }
 
