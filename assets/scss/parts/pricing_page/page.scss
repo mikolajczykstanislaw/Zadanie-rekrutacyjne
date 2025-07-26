@@ -1,0 +1,687 @@
+.pricing-section {
+    // ========================================
+    // MAIN SECTION STYLES
+    // ========================================
+    position: relative;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 15px;
+
+    // Background blur effect
+    &::before {
+        content: "";
+        position: absolute;
+        width: 821px;
+        height: 730px;
+        top: -20px;
+        left: -50px;
+        background: #85c6ff66;
+        filter: blur(300px);
+        border-radius: 40%;
+        z-index: 0;
+
+        // Adjust blur for mobile/tablet
+        @media (max-width: 1349px) {
+            width: 300px;
+            height: 400px;
+            top: -10px;
+            left: -20px;
+        }
+    }
+
+    // ========================================
+    // PRICING CONTAINER
+    // ========================================
+    .pricing-container {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        // Grid layout tylko od 1350px
+        @media (min-width: 1350px) {
+            display: grid;
+            grid-template-columns: 738px 520px;
+            column-gap: 30px;
+            justify-content: center;
+            align-items: start;
+        }
+    }
+
+    // ========================================
+    // MAIN PRICING CARD (LEFT SIDE)
+    // ========================================
+    .pricing-card {
+        position: relative;
+        z-index: 1;
+        background-color: white;
+        border-radius: 20px;
+        padding: 20px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid $card-border-color;
+        width: 100%;
+
+        @media (min-width: 768px) {
+            padding: 32px;
+        }
+
+        @media (min-width: 1350px) {
+            width: 738px;
+            flex-shrink: 0;
+            flex-grow: 0;
+            height: 548px;
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        // Card title
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: $primary-text-color;
+            margin-bottom: 15px;
+
+            @media (min-width: 768px) {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+        }
+
+        // ========================================
+        // STUDENT COUNT FORM
+        // ========================================
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            @media (min-width: 768px) {
+                margin-bottom: 30px;
+            }
+
+            .label-and-number-row {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+
+                @media (min-width: 768px) {
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 0;
+                }
+            }
+
+            label {
+                font-size: 20px;
+                font-weight: 700;
+                color: $primary-text-color;
+                margin-bottom: 0;
+
+                @media (min-width: 768px) {
+                    font-size: 1rem;
+                }
+            }
+
+            .student-count-input {
+                width: 80px;
+                padding: 8px 12px;
+                border: none;
+                border-radius: 8px;
+                text-align: center;
+                font-size: 1rem;
+                font-weight: 600;
+                color: $primary-text-color;
+                background-color: $light-blue-bg;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                outline: none;
+
+                @media (min-width: 768px) {
+                    margin-left: 20px;
+                }
+            }
+
+            // Range slider wrapper
+            .range-wrapper {
+                position: relative;
+                width: 100%;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                margin-top: 15px;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -15px;
+                    left: 0;
+                    width: 100%;
+                    height: 0.5px;
+                    background-color: $border-color;
+                }
+            }
+
+            // Range value bubble
+            .range-value-bubble {
+                position: absolute;
+                top: -35px;
+                background-color: $primary-color;
+                color: white;
+                padding: 4px 8px;
+                border-radius: 12px;
+                font-size: 0.8rem;
+                font-weight: 600;
+                white-space: nowrap;
+                z-index: 10;
+                transform: translateX(-50%);
+                min-width: 40px;
+                text-align: center;
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+            // Range slider
+            .form-range {
+                flex-grow: 1;
+                height: 8px;
+                border-radius: 5px;
+                -webkit-appearance: none;
+                appearance: none;
+                outline: none;
+                background: transparent;
+                position: relative;
+            }
+
+            // Range slider track styles
+            .form-range::-webkit-slider-runnable-track {
+                height: 8px;
+                border-radius: 5px;
+                background: linear-gradient(
+                    to right,
+                    $primary-color var(--range-progress, 0%),
+                    $card-border-color var(--range-progress, 0%)
+                );
+            }
+
+            .form-range::-moz-range-track {
+                height: 8px;
+                border-radius: 5px;
+                background: linear-gradient(
+                    to right,
+                    $primary-color var(--range-progress, 0%),
+                    $card-border-color var(--range-progress, 0%)
+                );
+            }
+
+            .form-range::-ms-track {
+                height: 8px;
+                border-radius: 5px;
+                background: linear-gradient(
+                    to right,
+                    $primary-color var(--range-progress, 0%),
+                    $card-border-color var(--range-progress, 0%)
+                );
+                border-color: transparent;
+                color: transparent;
+            }
+
+            // Range slider thumb styles
+            .form-range::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 20px;
+                height: 20px;
+                background: white;
+                border-radius: 50%;
+                cursor: pointer;
+                border: 2px solid $primary-color;
+                box-shadow: 0 0 0 1px $primary-color;
+                margin-top: -6px;
+            }
+
+            .form-range::-moz-range-thumb {
+                width: 20px;
+                height: 20px;
+                background: white;
+                border-radius: 50%;
+                cursor: pointer;
+                border: 2px solid $primary-color;
+                box-shadow: 0 0 0 1px $primary-color;
+            }
+
+            .form-range::-ms-thumb {
+                width: 20px;
+                height: 20px;
+                background: white;
+                border-radius: 50%;
+                cursor: pointer;
+                border: 2px solid $primary-color;
+                box-shadow: 0 0 0 1px $primary-color;
+            }
+        }
+
+        // ========================================
+        // MODULE SELECTION
+        // ========================================
+        .module-selection {
+            h3 {
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: $primary-text-color;
+                margin-bottom: 15px;
+
+                @media (min-width: 768px) {
+                    font-size: 1.5rem;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+
+        .module-grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+
+            @media (min-width: 640px) {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            @media (min-width: 768px) {
+                gap: 30px;
+            }
+        }
+
+        .module-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            @media (min-width: 768px) {
+                gap: 15px;
+            }
+        }
+
+        .module-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .module-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 10px;
+
+            @media (min-width: 768px) {
+                padding: 8px 15px;
+            }
+
+            span {
+                font-size: 16px;
+                color: $primary-text-color;
+                font-weight: 500;
+
+                @media (min-width: 768px) {
+                    font-size: 1rem;
+                }
+            }
+
+            .module-price {
+                font-size: 0.8rem;
+                color: #666;
+                font-weight: normal;
+                margin-left: 4px;
+
+                @media (min-width: 768px) {
+                    font-size: 0.9rem;
+                    margin-left: 8px;
+                }
+            }
+
+            .lock-icon {
+                position: absolute;
+                right: -25px;
+                font-size: 12px;
+                color: #999;
+            }
+        }
+
+        // ========================================
+        // TOGGLE SWITCHES
+        // ========================================
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+
+            input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+            .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: $card-border-color;
+                transition: 0.4s;
+
+                &.round {
+                    border-radius: 20px;
+                }
+
+                &:before {
+                    position: absolute;
+                    content: "";
+                    height: 16px;
+                    width: 16px;
+                    left: 2px;
+                    bottom: 2px;
+                    background-color: white;
+                    transition: 0.4s;
+                    border-radius: 50%;
+                }
+            }
+
+            .switch-icon {
+                position: absolute;
+                top: 50%;
+                left: 10px;
+                transform: translate(-50%, -50%);
+                transition: 0.4s;
+                z-index: 2;
+                pointer-events: none;
+                width: 10px;
+                height: 10px;
+            }
+
+            // Switch states
+            input:checked + .slider {
+                background-color: $primary-color;
+            }
+
+            input:checked + .slider:before {
+                transform: translateX(20px);
+            }
+
+            input:checked ~ .switch-icon {
+                left: 30px;
+            }
+
+            input:disabled + .slider {
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    // ========================================
+    // SUMMARY CONTAINER (RIGHT SIDE)
+    // ========================================
+    .summary-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+
+        // Grid positioning tylko od 1350px
+        @media (min-width: 1350px) {
+            grid-column: 2;
+            grid-row: 1;
+            width: auto;
+        }
+    }
+
+    // ========================================
+    // SUMMARY CARD
+    // ========================================
+    .summary-card {
+        width: 100%;
+
+        @media (min-width: 1350px) {
+            width: 520px;
+            flex-shrink: 0;
+            flex-grow: 0;
+            height: 308px;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: $primary-text-color;
+            margin-bottom: 15px;
+
+            @media (min-width: 768px) {
+                font-size: 1.25rem;
+                margin-bottom: 20px;
+            }
+        }
+
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+
+            @media (min-width: 768px) {
+                margin-bottom: 10px;
+            }
+
+            span {
+                font-size: 16px;
+                font-weight: 500;
+                color: $secondary-text-color;
+
+                @media (min-width: 768px) {
+                    font-size: 1rem;
+                }
+            }
+
+            .value {
+                font-weight: 500;
+            }
+        }
+
+        .cost-separator {
+            border-top: 1px solid $border-color;
+            margin: 15px 0;
+
+            @media (min-width: 768px) {
+                margin: 20px 0;
+            }
+        }
+
+        .cost-total {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 5px 10px;
+            margin-bottom: 20px;
+
+            @media (min-width: 768px) {
+                margin-bottom: 30px;
+            }
+
+            .label {
+                font-size: 24px;
+                font-weight: 700;
+                color: $primary-text-color;
+
+                @media (min-width: 768px) {
+                    font-size: 1.25rem;
+                }
+            }
+
+            .value-brutto {
+                font-size: 24px;
+                font-weight: 700;
+                color: $primary-text-color;
+                justify-self: end;
+
+                @media (min-width: 768px) {
+                    font-size: 1.8rem;
+                }
+            }
+
+            .label-netto {
+                font-size: 13px;
+                color: #8497ae;
+                font-weight: 400;
+                grid-column: 1;
+                margin: 0;
+
+                @media (min-width: 768px) {
+                    font-size: 0.9rem;
+                }
+            }
+
+            .value-netto {
+                font-size: 0.8rem;
+                color: #888;
+                justify-self: end;
+
+                @media (min-width: 768px) {
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+
+    // ========================================
+    // BUTTON CONTAINER
+    // ========================================
+    .button-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 0 auto;
+
+        @media (min-width: 1350px) {
+            width: 318px;
+        }
+    }
+
+    .btn-trial {
+        background: $primary-color;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 25px;
+        font-weight: 500;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        height: 48px;
+        font-size: 0.9rem;
+
+        @media (min-width: 768px) {
+            height: 52px;
+            font-size: 1rem;
+            padding: 12px 24px;
+        }
+
+        @media (min-width: 1350px) {
+            width: 318px;
+        }
+
+        &:hover {
+            background: $dark-blue;
+        }
+
+        .arrow-icon {
+            width: 14px;
+            height: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @media (min-width: 768px) {
+                width: 16px;
+                height: 16px;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+            }
+        }
+    }
+}
+
+// ========================================
+// INFO BOX (SEPARATE COMPONENT)
+// ========================================
+.info-box {
+    display: flex;
+    width: 100%;
+    max-width: 317px;
+    height: auto;
+    min-height: 100px;
+    background-color: #f6f7f9;
+    border-radius: 12px;
+    margin: 12px 0;
+    padding: 12px;
+    color: $secondary-text-color;
+
+    @media (min-width: 768px) {
+        margin: 12px;
+    }
+
+    @media (min-width: 1350px) {
+        width: 317px;
+        height: 120px;
+    }
+
+    .info-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .info-icon {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    .info-text-container {
+        display: flex;
+        flex-direction: column;
+        font-weight: 400;
+        line-height: 18px;
+        font-size: 12px;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .info-link {
+        display: block;
+        color: $secondary-text-color;
+        text-decoration: underline;
+        font-weight: 600;
+        line-height: 18px;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,67 @@
+{
+    "modules": {
+        "module-edziennik": {
+            "price": 1.0,
+            "name": "E-dziennik",
+            "required": true,
+            "description": "Podstawowy e-dziennik dla uczniów"
+        },
+        "module-sekretariat": {
+            "price": 1.0,
+            "name": "Sekretariat",
+            "required": true,
+            "description": "System zarządzania sekretariatem"
+        },
+        "module-platnosci": {
+            "price": 0.1,
+            "name": "Płatności online",
+            "required": false,
+            "description": "System płatności online"
+        },
+        "module-finanse": {
+            "price": 0.2,
+            "name": "Finanse",
+            "required": false,
+            "description": "Zarządzanie finansami szkoły"
+        },
+        "module-elearning": {
+            "price": 0.3,
+            "name": "E-learning",
+            "required": false,
+            "description": "Platforma e-learningowa"
+        },
+        "module-nauczanie-online": {
+            "price": 0.4,
+            "name": "Nauczanie online",
+            "required": false,
+            "description": "Narzędzia do nauczania online"
+        },
+        "module-rejestracja": {
+            "price": 0.5,
+            "name": "Rejestracja",
+            "required": false,
+            "description": "System rejestracji słuchaczy"
+        },
+        "module-crm": {
+            "price": 0.6,
+            "name": "CRM",
+            "required": false,
+            "description": "Zarządzanie relacjami z klientami"
+        },
+        "module-medioteka": {
+            "price": 0.7,
+            "name": "Medioteka",
+            "required": false,
+            "description": "Biblioteka multimedialna"
+        }
+    },
+    "vat": {
+        "rate": 0.23,
+        "multiplier": 1.23
+    },
+    "studentLimits": {
+        "min": 1,
+        "max": 1000,
+        "default": 200
+    }
+}
