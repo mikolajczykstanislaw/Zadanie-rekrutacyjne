@@ -137,7 +137,7 @@
         text-decoration: none;
         display: block;
         &:hover {
-            background-color: #f8f9fa;
+            background-color: $light-gray-bg;
             color: $primary-color;
         }
     }
@@ -184,7 +184,7 @@
     position: relative;
     padding: 80px 0;
     max-width: 1300px;
-    margin: 0 auto 60px auto;
+    margin: 0 auto 550px auto;
     padding: 80px 15px 0 15px;
 
     &::before {
@@ -193,7 +193,7 @@
         width: 867px;
         height: 666px;
         top: 1000px;
-        left: -91.5px;
+        left: -300px;
         background: rgba(133, 198, 255, 0.4);
         filter: blur(300px);
         z-index: 0;
@@ -211,6 +211,34 @@
             height: 200px;
             top: 150px;
             left: -30px;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 400px;
+        height: 300px;
+        top: 1800px;
+        left: 1000px;
+        background: rgba(133, 198, 255, 0.4);
+        filter: blur(100px);
+        z-index: 0;
+        opacity: 1;
+
+        @media (max-width: 1349px) {
+            width: 300px;
+            height: 220px;
+            top: 200px;
+            left: 20px;
+        }
+
+        @media (max-width: 768px) {
+            width: 200px;
+            height: 150px;
+            top: 150px;
+            left: 10px;
+            filter: blur(150px);
         }
     }
 
@@ -306,7 +334,7 @@
                     transition: all 0.3s ease;
 
                     path {
-                        fill: #030712;
+                        fill: $primary-text-color;
                         transition: fill 0.3s ease;
                     }
                 }
