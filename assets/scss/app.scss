@@ -58,13 +58,13 @@
                 flex-grow: 0;
                 justify-content: center;
                 align-items: center;
-                gap: 2rem;
+                gap: 32px;
             }
         }
 
         .navbar-nav {
             display: flex;
-            gap: 1.5rem;
+            gap: 24px;
             margin-bottom: 0;
             @media (min-width: 992px) {
                 margin-right: 0;
@@ -112,7 +112,7 @@
         color: white;
         text-decoration: none;
         &:hover {
-            background: darken($primary-color, 10%);
+            background: $dark-blue;
         }
     }
 }
@@ -124,8 +124,8 @@
     min-width: 160px;
     border: 1px solid $card-border-color;
     z-index: 1;
-    border-radius: 0.25rem;
-    padding: 0.5rem 0;
+    border-radius: 4px;
+    padding: 8px 0;
 
     li {
         list-style: none;
@@ -133,7 +133,7 @@
 
     .dropdown-item {
         color: $primary-text-color;
-        padding: 0.5rem 1rem;
+        padding: 8px 16px;
         text-decoration: none;
         display: block;
         &:hover {
@@ -169,7 +169,7 @@
     }
 
     p {
-        font-size: 1.125rem;
+        font-size: 18px;
         color: $secondary-text-color;
         line-height: 26px;
         max-width: 846px;
@@ -382,7 +382,7 @@
         gap: 32px;
         padding: 24px 20px 24px 20px;
         background: white;
-        border-radius: 16px;
+        border-radius: 12px;
         border: 1px solid $card-border-color;
         transition: all 0.3s ease;
         scroll-margin-top: 120px;
@@ -425,7 +425,7 @@
         }
 
         .arrow-icon {
-            margin-left: 0.5em;
+            margin-left: 8px;
             transition: transform 0.3s ease;
         }
     }
@@ -490,18 +490,18 @@
         }
 
         .feature-title {
-            font-size: 1.25rem;
+            font-size: 20px;
             margin-bottom: 12px;
         }
 
         .feature-description {
-            font-size: 0.9rem;
+            font-size: 14px;
             line-height: 1.5;
             margin-bottom: 12px;
         }
 
         .feature-link {
-            font-size: 0.85rem;
+            font-size: 14px;
             justify-content: center;
         }
     }
@@ -530,11 +530,11 @@
         }
 
         .feature-title {
-            font-size: 1.1rem;
+            font-size: 18px;
         }
 
         .feature-description {
-            font-size: 0.85rem;
+            font-size: 14px;
         }
 
         .feature-icon img {
@@ -551,7 +551,7 @@
         width: 100%;
         background-color: white;
         border: 1px solid $card-border-color;
-        padding: 1rem;
+        padding: 16px;
         display: none;
         flex-direction: column;
         align-items: center;
@@ -565,7 +565,7 @@
     .navbar-nav {
         flex-direction: column;
         width: 100%;
-        gap: 0.5rem;
+        gap: 8px;
         align-items: center;
     }
 
@@ -576,7 +576,7 @@
 
     .navbar-actions {
         width: 100%;
-        margin-top: 1rem;
+        margin-top: 16px;
         display: flex;
         justify-content: center;
         .btn-demo {
@@ -598,7 +598,7 @@
     }
 
     .dropdown-item {
-        padding: 0.5rem 0;
+        padding: 8px 0;
     }
 
     .nav-link {
