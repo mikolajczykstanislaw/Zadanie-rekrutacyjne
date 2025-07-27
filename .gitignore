@@ -1,4 +1,4 @@
-# node_modules - nie wrzucamy zależności do repo
+# node_modules
 node_modules/
 
 # Webpack build output
@@ -22,5 +22,5 @@ Thumbs.db
 .env.local
 .env.*.local
 
-# cache webpacka (jeśli używasz)
+# cache webpacka
 .cache/
